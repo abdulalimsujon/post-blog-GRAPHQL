@@ -13,7 +13,9 @@ interface userInfo {
 
 export const resolvers = {
     Query: {
-        me:{
+        users:async (parent:any,args:any,context:any)=>{
+
+            return await prisma.user.findMany()
             
         }
   
