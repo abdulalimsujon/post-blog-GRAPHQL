@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@apollo/server": "^4.11.3",
+    "@prisma/client": "^6.5.0",
+    "graphql": "^16.10.0",
+    "ts-node-dev": "^2.0.0"
+  },
+  "scripts": {
+    "dev": "nodemon --watch './**/*.ts' --exec 'tsx' src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "nodemon": "^3.1.9",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}
