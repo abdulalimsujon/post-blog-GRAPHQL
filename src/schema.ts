@@ -9,6 +9,7 @@ type Query {
 type Mutation {
   signup(name: String!, email: String!, password: String!): AuthPayload
   signIn(email:String! ,password: String!): AuthPayload
+  addPost(title:String!,content:String!):PostPayload
 }
 
 type Post {
@@ -36,9 +37,18 @@ type Profile {
   user: User!
 }
 
+
+
 # New type to represent the auth payload
 type AuthPayload {
+  userError: String
   token: String
+  user: User
+} 
+
+type PostPayload {
+  userError: String
+  post:Post
 }
 
 `;

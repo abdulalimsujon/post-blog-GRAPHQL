@@ -38,5 +38,11 @@ export const Mutation = {
     const token = jwt.sign({ userId: user.id }, "fajf", {
       expiresIn: "1d",
     });
+    return {
+      token,
+    };
+  },
+  addPost: (parent: any, args: any, { prisma }: any) => {
+    console.log(args);
   },
 };
