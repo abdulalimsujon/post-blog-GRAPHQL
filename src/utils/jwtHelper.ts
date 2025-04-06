@@ -10,7 +10,7 @@ const getUserInfoFromToken = async (token: string) => {
     const userData = jwt.verify(token, "fajf") as {
       userId: number;
     };
-    return userData.userId;
+    return { userId: userData.userId };
   } catch (error) {
     return null;
   }

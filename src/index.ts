@@ -10,6 +10,9 @@ const prisma = new PrismaClient();
 
 interface Context {
   prisma: PrismaClient<Prisma.PrismaClientOptions, never, DefaultArgs>;
+  userInfo: {
+    userId: number | null;
+  } | null;
 }
 
 const main = async () => {
@@ -21,10 +24,15 @@ const main = async () => {
   const { url } = await startStandaloneServer(server, {
     listen: { port: 4000 },
     context: async ({ req }): Promise<Context> => {
-      await jwtHelper.getUserInfoFromToken(req.headers.authorization as string);
+      const userInfo = await jwtHelper.getUserInfoFromToken(
+        req.headers.authorization as string
+      );
+
+      console.log("here 31", userInfo);
 
       return {
         prisma,
+        userInfo,
       };
     },
   });
