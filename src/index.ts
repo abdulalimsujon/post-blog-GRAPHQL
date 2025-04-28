@@ -22,13 +22,13 @@ const main = async () => {
   });
 
   const { url } = await startStandaloneServer(server, {
-    listen: { port: 4000 },
+    listen: { port: 5000 },
     context: async ({ req }): Promise<Context> => {
       const userInfo = await jwtHelper.getUserInfoFromToken(
         req.headers.authorization as string
       );
 
-      console.log("here 31", userInfo);
+      // console.log("here 31", userInfo);
 
       return {
         prisma,

@@ -40,6 +40,7 @@ export const authResolvers = {
     });
     return {
       token,
+      user
     };
   },
 };

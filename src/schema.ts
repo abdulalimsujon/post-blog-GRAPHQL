@@ -11,6 +11,7 @@ type Mutation {
   signIn(email:String! ,password: String!): AuthPayload
   addPost(post:postInput):PostPayload
   updatePost(postId: ID!, post:postInput!):PostPayload
+  deletePost(postId:ID!):PostPayload
 }
 
 type Post {

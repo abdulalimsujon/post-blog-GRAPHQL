@@ -1,6 +1,6 @@
-
 generator client {
   provider = "prisma-client-js"
+  output   = "./node_modules/@prisma/client"
 }
 
 datasource db {
@@ -13,7 +13,7 @@ model Post {
   title     String
   content   String
   authorId  Int
-  author   User     @relation(fields: [authorId], references: [id])
+  author    User     @relation(fields: [authorId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   published Boolean  @default(false)
@@ -29,8 +29,9 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  Posts Post[]
+  Posts   Post[]
   Profile Profile?
+
   @@map("users")
 }
 
@@ -39,10 +40,9 @@ model Profile {
   bio       String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  userId    Int @unique
-  
-  user User @relation(fields: [userId],references: [id])
+  userId    Int      @unique
+
+  user User @relation(fields: [userId], references: [id])
 
   @@map("profiles")
-
 }
