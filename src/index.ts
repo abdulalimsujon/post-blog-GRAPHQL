@@ -6,6 +6,7 @@ import { Prisma, PrismaClient } from "@prisma/client";
 import { DefaultArgs } from "@prisma/client/runtime/library";
 import { jwtHelper } from "./utils/jwtHelper";
 
+
 const prisma = new PrismaClient();
 
 interface Context {
@@ -22,7 +23,7 @@ const main = async () => {
   });
 
   const { url } = await startStandaloneServer(server, {
-    listen: { port: 5000 },
+    listen: { port: 4000 },
     context: async ({ req }): Promise<Context> => {
       const userInfo = await jwtHelper.getUserInfoFromToken(
         req.headers.authorization as string
